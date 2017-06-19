@@ -8,3 +8,22 @@ python manage.py startapp appname
 python manage.py runserver
 
 #add urls in each app in urls.py
+
+#create migrations for new models
+python manage.py makemigrations music
+
+#run migrations when the models have been created
+python manage.py migrate
+
+
+
+create app -> create models -> create migrations for it -> add app to the settings.py[installed_apps] -> run the migration -> run the server -> YAY
+
+python manage.py shell -> to open Database shell
+    >>> from music.models import Album, Song
+    >>> Album.objects.all()
+    []
+    >>> a = Album()
+    >>> a = Album(artist = "Taylor",album_title = "Red",genre = "Country",album_logo = "url")
+    >>> a.save()
+    a.id == a.pk
